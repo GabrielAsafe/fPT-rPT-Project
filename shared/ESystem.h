@@ -1,5 +1,8 @@
 #pragma once
 
+#include <Windows.h>
+
+
 enum ESystemOS
 {
 	SYSTEMOS_Unknown		= 0,
@@ -29,7 +32,7 @@ enum ESystemLanguage
 	SYSTEMLANGUAGE_Thai,
 };
 
-#define NT_SUCCESS(x) ((x) >= 0)
+
 #define STATUS_INFO_LENGTH_MISMATCH 0xc0000004
 
 #define SystemHandleInformation 16
@@ -92,6 +95,16 @@ typedef enum _POOL_TYPE
 	PagedPoolCacheAligned,
 	NonPagedPoolCacheAlignedMustS
 } POOL_TYPE, *PPOOL_TYPE;
+
+
+#ifndef _WINTERNL_
+typedef struct _UNICODE_STRING
+{
+	USHORT Length;
+	USHORT MaximumLength;
+	PWSTR Buffer;
+} UNICODE_STRING, * PUNICODE_STRING;
+#endif
 
 typedef struct _OBJECT_TYPE_INFORMATION
 {

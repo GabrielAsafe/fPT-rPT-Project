@@ -1,6 +1,25 @@
 #include "stdafx.h"
 #include "EXEMatrix.h"
 #include "point.h"
+#include <cmath>
+
+static int PTCOS[4096];
+static int PTSEN[4096];
+
+struct PTTrigInit
+{
+	PTTrigInit()
+	{
+		for (int i = 0; i < 4096; ++i)
+		{
+			double rad = (double)i * 2.0 * 3.14159265358979323846 / 4096.0;
+			PTCOS[i] = (int)(cos(rad) * 65536.0);
+			PTSEN[i] = (int)(sin(rad) * 65536.0);
+		}
+	}
+};
+
+static PTTrigInit g_PTTrigInit;
 
 EXEMatrixF EXEMatrixConvertIF( const EXEMatrixI & i )
 {

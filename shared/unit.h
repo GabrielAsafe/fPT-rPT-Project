@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Pch.h"
 #include "EXEMatrix.h"
 
 #define MONSTER_SERVER_MAX			800
@@ -14,12 +14,21 @@ class EXEMesh;
 class EXEModel;
 class Map;
 
+#ifndef PTModel_ptr
+#define PTModel_ptr EXEModel*
+#endif
+class PTModel;
+class PTMesh;
+
 class UserData;
 
 #if defined(_GAME)
-namespace Delta3D::Graphics
+namespace Delta3D
 {
-struct ModelGroup;
+	namespace Graphics
+	{
+		struct ModelGroup;
+	}
 }
 
 struct ModelsGroup
@@ -31,9 +40,10 @@ struct ModelsGroup
 
 #endif
 
-#if defined(_SERVER)
+#if defined(_SERVER) || (!defined(_GAME) && !defined(_SERVER))
 typedef void ModelsGroup;
 #endif
+
 
 struct EXEModelData
 {

@@ -1,5 +1,9 @@
+#pragma once
+#include "Pch.h"
+
 #include "stdafx.h"
 #include "CSystem.h"
+
 
 #include <VersionHelpers.h>
 

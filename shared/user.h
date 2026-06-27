@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Pch.h"
 
 class SocketData;
 
@@ -9,6 +9,7 @@ struct QuestStatusData;
 
 class CaravanBase;
 class XmasTreeBase;
+class CWarehouseBase;
 
 enum EAccountShare;
 

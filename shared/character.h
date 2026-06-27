@@ -1,7 +1,8 @@
 #pragma once
-
+#include "Pch.h"
 #include "skill.h"
 #include "item.h"
+
 
 enum EMapID;
 struct RecordSkill;

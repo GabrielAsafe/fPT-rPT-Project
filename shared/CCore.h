@@ -2,6 +2,9 @@
 
 #include "CCommon.h"
 
+class CApplication;
+
+
 extern CApplication		* pcApplication;
 extern BOOL				  g_bRunning;
 

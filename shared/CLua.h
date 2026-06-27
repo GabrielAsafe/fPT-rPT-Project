@@ -1,5 +1,14 @@
 #pragma once
 
+#include "Pch.h"
+
+extern "C"
+{
+#include "lua.h"
+#include "lauxlib.h"
+#include "lualib.h"
+}
+
 #define NUM_KEYS	10
 
 static int iKeysDecrypt[NUM_KEYS] = { 36, 20, 12, 8, 69, 3, 99, 13, 45, 17 };

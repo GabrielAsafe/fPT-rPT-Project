@@ -1,7 +1,6 @@
 ﻿#pragma once
-
+#include "Pch.h"
 #include "PSkill.h"
-
 #include "item.h"
 
 #define SKILLCONTAINER_LENGTH	(MAX_PKTSIZ - 0x20)

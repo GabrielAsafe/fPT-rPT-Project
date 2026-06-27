@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Pch.h"
+
 #define GAME_NAME			"rPT"
 
 #define FPS					70

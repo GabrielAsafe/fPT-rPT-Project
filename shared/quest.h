@@ -3,9 +3,12 @@
 #include <strsafe.h>
 #include <vector>
 
+
 struct IMinMax;
 
+enum EMapID : int;
 #define QUEST_MONSTERITEM_MAX				10
+
 
 enum EQuestType
 {

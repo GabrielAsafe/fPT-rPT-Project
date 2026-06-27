@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.102
+# Visual Studio Version 18
+VisualStudioVersion = 18.7.11919.86 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shared", "shared.vcxproj", "{13BD3198-FFC5-49BC-9114-AE93A6C11D8D}"
 EndProject
@@ -13,8 +13,8 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{13BD3198-FFC5-49BC-9114-AE93A6C11D8D}.Debug|x64.ActiveCfg = Debug|x64
-		{13BD3198-FFC5-49BC-9114-AE93A6C11D8D}.Debug|x64.Build.0 = Debug|x64
+		{13BD3198-FFC5-49BC-9114-AE93A6C11D8D}.Debug|x64.ActiveCfg = Debug|Win32
+		{13BD3198-FFC5-49BC-9114-AE93A6C11D8D}.Debug|x64.Build.0 = Debug|Win32
 		{13BD3198-FFC5-49BC-9114-AE93A6C11D8D}.Debug|x86.ActiveCfg = Debug|Win32
 		{13BD3198-FFC5-49BC-9114-AE93A6C11D8D}.Debug|x86.Build.0 = Debug|Win32
 		{13BD3198-FFC5-49BC-9114-AE93A6C11D8D}.Release|x64.ActiveCfg = Release|x64
