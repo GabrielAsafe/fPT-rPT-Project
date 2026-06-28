@@ -1,7 +1,10 @@
 #pragma once
-
+#include <WinSock2.h>
+#include <WS2tcpip.h>
+class CMutex;
 class UserData;
 class User;
+
 
 #define WNDPROC_SOCKETACCEPT( window, socket, address )		( SendMessageW( window, WM_SOCKETACCEPT, (WPARAM)socket, (LPARAM)address ) )
 #define WNDPROC_SOCKETPACKET( window, socketdata, packet )	( PostMessageW( window, WM_SOCKETPACKET, (WPARAM)socketdata, (LPARAM)packet ) )

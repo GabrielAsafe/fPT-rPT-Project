@@ -27,13 +27,13 @@ struct LuaState
 {
 	LuaState() { self_ptr = this; }
 
-	lua_State		* get_ptr() { return (lua_State*)self_ptr; }
+	lua_State* get_ptr() { return state_ptr; }
 
-	lua_State		  state;
+	lua_State* state;
 
-	LuaState		* self_ptr;
-	lua_State		* state_ptr;
-	CLua			* lua;
+	LuaState* self_ptr;
+	lua_State* state_ptr;
+	CLua* lua;
 };
 
 

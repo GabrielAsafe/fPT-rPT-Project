@@ -1,5 +1,8 @@
 #pragma once
 
+#include "stdafx.h"
+#include "CWindow.h"
+#include "CApplication.h"
 #include "CList.h"
 #include "CDialog.h"
 
