@@ -12,8 +12,8 @@ class XmasTreeBase;
 class CWarehouseBase;
 
 enum EAccountShare;
-
-struct MountUserListData;
+#include "mount.h"
+//struct MountUserListData;
 
 #define PVPDAMAGE_MAX_QUEUE				256
 #define PVPDAMAGE_TIME_DAMAGE			750

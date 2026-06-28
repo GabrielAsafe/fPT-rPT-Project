@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "X3DQuaternion.h"
 #include "X3DMatrix4.h"
 
 namespace X3D

@@ -1,6 +1,9 @@
 #include "stdafx.h"
 #include "Coin.h"
 #include "user.h"
+#include "account.h"
+#include "caravan.h"
+#include "christmas.h"
 
 User::User()
 {

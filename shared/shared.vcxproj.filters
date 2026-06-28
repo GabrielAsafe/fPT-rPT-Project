@@ -419,6 +419,9 @@
     <ClInclude Include="Pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CIocpUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="shared.rc">

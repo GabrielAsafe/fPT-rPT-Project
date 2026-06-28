@@ -33,91 +33,48 @@ BOOL UnitData::IsPlayer( bool bVerifyPvP )
     return b;
 }
 
-NAKED void UnitData::Main()
-{
-	JMP( pfnMain );
-}
+#if defined(_GAME) || defined(_SERVER)
 
-NAKED void UnitData::Init()
-{
-	JMP( pfnInit );
-}
+NAKED void UnitData::Main() { JMP(pfnMain); }
+NAKED void UnitData::Init() { JMP(pfnInit); }
+NAKED void UnitData::SetPosition(int iX, int iY, int iZ, int iAX, int iAY, int iAZ) { JMP(pfnSetPosition); }
+NAKED BOOL UnitData::Animate(EAnimationType eAnimationType) { JMP(pfnAnimate); }
+NAKED BOOL UnitData::ChangeAnimationID(int iID, int iModelType) { JMP(pfnChangeAnimationID); }
+NAKED int UnitData::HandleUnitDataBuffer(char* pBuffer, int iDelayTime, int iSleep) { JMP(pfnHandleBufferData); }
+NAKED BOOL UnitData::NextTarget(int iX, int iY, int iZ) { JMP(pfnSetNextTarget); }
+NAKED BOOL UnitData::SetTarget(int iX, int iZ) { JMP(pfnSetTarget); }
+NAKED BOOL UnitData::SetTargetEx(int iX, int iY, int iZ) { JMP(pfnSetTargetEx); }
+NAKED int UnitData::SetAngleByPosition(int iX, int iZ) { JMP(pfnSetAngleByPosition); }
+NAKED BOOL UnitData::GetAnimationAttackPosition(int* iX, int* iY, int* iZ) { JMP(pfnGetAnimAttackPosition); }
+NAKED void UnitData::LoadModel(char* pszModelFilePath) { JMP(pfnLoadModel); }
+NAKED void UnitData::UpdateAttack(BOOL bUpdateTime) { JMP(pfnUpdateAttack); }
+NAKED BOOL UnitData::Render() { JMP(pfnRender); }
+NAKED void UnitData::SetHeadModelData(EXEModelData* psModelData) { JMP(pfnSetHeadModelData); }
+NAKED void UnitData::SetBodyModelData(EXEModelData* psModelData) { JMP(pfnSetBodyModelData); }
+NAKED void UnitData::Free() { JMP(pfnCloseUnitData); }
 
-NAKED void UnitData::SetPosition( int iX, int iY, int iZ, int iAX, int iAY, int iAZ )
-{
-	JMP( pfnSetPosition );
-}
+#else
 
-NAKED BOOL UnitData::Animate( EAnimationType eAnimationType )
-{
-	JMP( pfnAnimate );
-}
+void UnitData::Main() {}
+void UnitData::Init() {}
+void UnitData::SetPosition(int iX, int iY, int iZ, int iAX, int iAY, int iAZ) {}
+BOOL UnitData::Animate(EAnimationType eAnimationType) { return FALSE; }
+BOOL UnitData::ChangeAnimationID(int iID, int iModelType) { return FALSE; }
+int UnitData::HandleUnitDataBuffer(char* pBuffer, int iDelayTime, int iSleep) { return 0; }
+BOOL UnitData::NextTarget(int iX, int iY, int iZ) { return FALSE; }
+BOOL UnitData::SetTarget(int iX, int iZ) { return FALSE; }
+BOOL UnitData::SetTargetEx(int iX, int iY, int iZ) { return FALSE; }
+int UnitData::SetAngleByPosition(int iX, int iZ) { return 0; }
+BOOL UnitData::GetAnimationAttackPosition(int* iX, int* iY, int* iZ) { return FALSE; }
+void UnitData::LoadModel(char* pszModelFilePath) {}
+void UnitData::UpdateAttack(BOOL bUpdateTime) {}
+BOOL UnitData::Render() { return FALSE; }
+void UnitData::SetHeadModelData(EXEModelData* psModelData) {}
+void UnitData::SetBodyModelData(EXEModelData* psModelData) {}
+void UnitData::Free() {}
 
-NAKED BOOL UnitData::ChangeAnimationID( int iID, int iModelType )
-{
-	JMP( pfnChangeAnimationID );
-}
+#endif
 
-NAKED int UnitData::HandleUnitDataBuffer( char * pBuffer, int iDelayTime, int iSleep )
-{
-	JMP( pfnHandleBufferData );
-}
-
-NAKED BOOL UnitData::NextTarget( int iX, int iY, int iZ )
-{
-	JMP( pfnSetNextTarget );
-}
-
-NAKED BOOL UnitData::SetTarget( int iX, int iZ )
-{
-	JMP( pfnSetTarget );
-}
-
-NAKED BOOL UnitData::SetTargetEx( int iX, int iY, int iZ )
-{
-	JMP( pfnSetTargetEx );
-}
-
-NAKED int UnitData::SetAngleByPosition( int iX, int iZ )
-{
-	JMP( pfnSetAngleByPosition );
-}
-
-NAKED BOOL UnitData::GetAnimationAttackPosition( int * iX, int * iY, int * iZ )
-{
-	JMP( pfnGetAnimAttackPosition );
-}
-
-NAKED void UnitData::LoadModel( char * pszModelFilePath )
-{
-	JMP( pfnLoadModel );
-}
-
-NAKED void UnitData::UpdateAttack( BOOL bUpdateTime )
-{
-	JMP( pfnUpdateAttack );
-}
-
-NAKED BOOL UnitData::Render()
-{
-	JMP( pfnRender );
-}
-
-NAKED void UnitData::SetHeadModelData( EXEModelData * psModelData )
-{
-	JMP( pfnSetHeadModelData );
-}
-
-NAKED void UnitData::SetBodyModelData( EXEModelData * psModelData )
-{
-	JMP( pfnSetBodyModelData );
-}
-
-
-NAKED void UnitData::Free()
-{
-	JMP( pfnCloseUnitData );
-}
 
 BOOL UnitData::Move( int iDistance )
 {

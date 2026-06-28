@@ -48,7 +48,7 @@ CLua::CLua()
 
 	luaL_openlibs( pLuaState->state_ptr );
 
-	CopyMemory( pLuaState->self_ptr, pLuaState->state_ptr, sizeof( lua_State ) );
+	//CopyMemory( pLuaState->self_ptr, pLuaState->state_ptr, sizeof( lua_State ) );
 
 	pLuaState->lua = this;
 

@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "CSystem.h"
 
-
+#include "Shellapi.h"
 #include <VersionHelpers.h>
 
 CSystem::CSystem()

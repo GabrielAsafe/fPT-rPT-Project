@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "CWindow.h"
 
+#include "CApplication.h"
+
 CWindow::CWindow()
 {
 	bRegisterSuccess		= FALSE;

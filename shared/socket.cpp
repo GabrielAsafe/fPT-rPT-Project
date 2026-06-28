@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "debug.h"
+#include "CMutex.h"
 #include "socket.h"
 
 const BOOL SOCKET_NODELAY = TRUE;

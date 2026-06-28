@@ -185,6 +185,7 @@
     <ClInclude Include="character.h" />
     <ClInclude Include="chat.h" />
     <ClInclude Include="christmas.h" />
+    <ClInclude Include="CIocpUtils.h" />
     <ClInclude Include="clan.h" />
     <ClInclude Include="CList.h" />
     <ClInclude Include="CLua.h" />
