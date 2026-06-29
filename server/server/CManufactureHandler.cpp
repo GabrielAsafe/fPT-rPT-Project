@@ -643,8 +643,8 @@ void CManufactureHandler::SetHalloweenCombination( int iID )
 
 void CManufactureHandler::RandomizeCombinations()
 {
-	auto rd = std::random_device{};
-	auto rng = std::default_random_engine{rd()};
+	std::random_device rd;
+        std::default_random_engine rng( rd() );
 
 	std::vector<EItemID> vItems;
 	vItems.push_back( ITEMID_HopyToy );
@@ -803,3 +803,5 @@ BOOL CManufactureHandler::SwapItem( User * pcUser, PacketManufactureItem * psPac
 
 	return FALSE;
 }
+
+

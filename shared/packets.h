@@ -1,3 +1,4 @@
+#pragma once
 #include <Windows.h>
 #include "premiumstruct.h"
 
@@ -2196,4 +2197,5 @@ struct PacketChallengeUpdate : Packet
 
 	int					iTimeLeft;
 };
+
 

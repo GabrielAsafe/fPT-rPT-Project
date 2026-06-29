@@ -276,7 +276,9 @@ bool GetFileLastModifiedSystemTime( const std::string strFile, SYSTEMTIME & sTim
 {
 	bool bRet = false;
 
-	if ( HANDLE hFile = CreateFileA( strFile.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL ); hFile != INVALID_HANDLE_VALUE )
+	HANDLE hFile = CreateFileA( strFile.c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, 0, NULL );
+
+        if ( hFile != INVALID_HANDLE_VALUE )
 	{
 		FILETIME sWrite;
 		SYSTEMTIME sUTC;
@@ -347,3 +349,4 @@ std::string WideStringToString( const std::wstring & wstr )
 
 	return szBuffer;
 }
+

@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <COPY_DEBUG_DLL_DIR>D:\RPT\Server\Login</COPY_DEBUG_DLL_DIR>
-    <COPY_RELEASE_DLL_DIR>D:\RPT\Server\Login</COPY_RELEASE_DLL_DIR>
-    <GAMESERVER1_DIR>D:\RPT\Server\Server1</GAMESERVER1_DIR>
-    <SHARED_DIR>D:\RPT\Projects\dll\shared</SHARED_DIR>
-    <AIAPI_DIR>D:\RPT\Projects\dll\apiai</AIAPI_DIR>
-	<BOOST_SDK_DIR>D:\RPT\Projects\dll\boost</BOOST_SDK_DIR>
+    <COPY_DEBUG_DLL_DIR>$(MSBuildThisFileDirectory)..\..\server_out_build\</COPY_DEBUG_DLL_DIR>
+    <COPY_RELEASE_DLL_DIR>$(MSBuildThisFileDirectory)..\..\server_out_build\</COPY_RELEASE_DLL_DIR>
+    <GAMESERVER1_DIR>$(MSBuildThisFileDirectory)..\..\server_out_build\</GAMESERVER1_DIR>
+    <SHARED_DIR>$(MSBuildThisFileDirectory)..\..\shared</SHARED_DIR>
+    <AIAPI_DIR>$(MSBuildThisFileDirectory)..\..\server\server\apiai</AIAPI_DIR>
+	<BOOST_SDK_DIR>$(MSBuildThisFileDirectory)..\..\server\server\boost</BOOST_SDK_DIR>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -32,3 +32,5 @@
     </BuildMacro>
   </ItemGroup>
 </Project>
+
+

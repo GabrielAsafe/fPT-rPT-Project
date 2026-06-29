@@ -75,13 +75,14 @@ void CIocpWorkerThread::HandleReceive( CIocpBase & cBase, DWORD dwTransferred )
 {
     if ( auto cConnection = cIocpData.cConnectionManager.GetConnection( cBase.iID ) )
     {
-        std::scoped_lock<std::mutex> l( cConnection->sMutexReceive );
+        std::lock_guard<std::mutex> l( cConnection->sMutexReceive );
 
         if ( dwTransferred )
         {
             if ( cIocpData.pHandler )
             {
-                if ( UINT uProcessed = cIocpData.pHandler->OnReceive( cBase.iID, cBase.vData, dwTransferred + cBase.iTransferred ); uProcessed < (dwTransferred + cBase.iTransferred) )
+                UINT uProcessed = cIocpData.pHandler->OnReceive( cBase.iID, cBase.vData, dwTransferred + cBase.iTransferred );
+                if ( uProcessed < (dwTransferred + cBase.iTransferred) )
                 {
                     if ( uProcessed == 0 )
                         cBase.Add( dwTransferred );
@@ -120,7 +121,7 @@ void CIocpWorkerThread::HandleSend( CIocpBase & cBase, DWORD dwTransferred )
 {
     if ( auto pConnection = cIocpData.cConnectionManager.GetConnection( cBase.iID ) )
     {
-        std::scoped_lock<std::mutex> l( pConnection->sMutexSend );
+        std::lock_guard<std::mutex> l( pConnection->sMutexSend );
 
         cBase.eType = CIocpBase::IocpType::IOCPTYPE_Sent;
 
@@ -139,7 +140,7 @@ void CIocpWorkerThread::HandleSent( CIocpBase & cBase, DWORD dwTransferred )
                 cIocpData.pHandler->OnSent( cBase, dwTransferred );
         }
 
-        //std::scoped_lock<std::mutex> l( pConnection->sMutexSend );
+        //std::lock_guard<std::mutex> l( pConnection->sMutexSend );
 
         /*
         if ( cBase.Add( dwTransferred, false ) < cBase.vData.size() )
@@ -216,3 +217,4 @@ void CIocpWorkerThread::HandleDisconnect( CIocpBase & cBase )
 }
 
 };
+

@@ -1930,7 +1930,8 @@ void UnitServer::UpdateCharacterData(User* pcUser, UnitData* pcUnitData)
 {
 	if (pcUnitData && pcUser)
 	{
-		PacketUnitInfo sPacket = { 0 };
+		PacketUnitInfo sPacket;
+                ZeroMemory( &sPacket, sizeof( PacketUnitInfo ) );
 		sPacket.iHeader = PKTHDR_CharacterData;
 		sPacket.iLength = sizeof(PacketUnitInfo);
 		sPacket.iID = pcUnitData->iID;
@@ -2813,4 +2814,6 @@ void UnitServer::OnBeforeCrystalKill( UnitData * pcUnitData )
 		}
 	}
 }
+
+
 

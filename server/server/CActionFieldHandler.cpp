@@ -790,7 +790,8 @@ bool CActionFieldHandler::CanEnter( User * pcUser, EActionFieldModeID iModeID )
 			for ( auto pcPartyUser : vUsers )
 			{
 				//Get Saved Instance count
-				if ( int iSavedInstances = SQLGetInstanceTodayCount( pcPartyUser, iModeID ); iSavedInstances > 0 )
+				int iSavedInstances = SQLGetInstanceTodayCount( pcPartyUser, iModeID );
+                                if ( iSavedInstances > 0 )
 				{
 					//Already joined today?
 					SYSTEMTIME * ps = GetServerTime();
@@ -1648,7 +1649,8 @@ void CActionFieldHandler::HandleNetPacket( PacketNetActionFieldRequest * psPacke
 				{
 					if ( auto pcUserParty = USERDATATOUSER( USERDATABYID( psPacket->iaUsersPartyID[i] ) ) )
 					{
-						if ( int iSavedInstances = SQLGetInstanceTodayCount( pcUserParty, psPacket->iModeID ); iSavedInstances >= 0 )
+						int iSavedInstances = SQLGetInstanceTodayCount( pcUserParty, psPacket->iModeID );
+                                                if ( iSavedInstances >= 0 )
 						{
 							if ( (iSavedInstances > 0) && (iSavedInstances <= (pcActionField->GetSettings().iInstanceDayLimit - 1)) )
 							{
@@ -1810,3 +1812,5 @@ BOOL CActionFieldHandler::IsOnInstance( Unit * pcUnit )
 
 	return FALSE;
 }
+
+

@@ -1,4 +1,5 @@
-﻿#include <Windows.h>
+#pragma once
+#include <Windows.h>
 
 #define PREMIUM_ITEM_TOTAL 50
 
@@ -164,5 +165,6 @@ static BOOL ItemTimerIsSame( int iType, int iTypeOther )
 
 	return bRet;
 }
+
 
 

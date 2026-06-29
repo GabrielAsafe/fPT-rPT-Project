@@ -16,9 +16,10 @@ CIocpData::~CIocpData()
 
 INT64 CIocpData::GetNextID()
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
     iID++;
     return iID;
 }
 
 };
+

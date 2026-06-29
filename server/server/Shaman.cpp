@@ -373,7 +373,8 @@ int CShaman::RecvBuffSkill( UserData * pcUserData, UINT packet )
 			//In Party?
 			if ( pcUser->psParty && pcUser->bParty )
 			{
-				if ( auto vUsersParty = PARTYHANDLER->GetPartyMembers( pcUser->psParty ); vUsersParty.size() > 0 )
+				auto vUsersParty = PARTYHANDLER->GetPartyMembers( pcUser->psParty );
+                                if ( vUsersParty.size() > 0 )
 				{
 					for ( auto pcTarget : vUsersParty )
 					{
@@ -473,3 +474,5 @@ int CShaman::AddChasingHuntAtkPow( UserData * pcUserData, int iType )
 	}
 	return 0;
 }
+
+

@@ -164,16 +164,40 @@ BOOL CSystem::OpenURLEx( char * pszFormatURL, ... )
 
 std::vector<std::string> CSystem::ListFilesInDirectory( const std::string & strFolderPath, const std::string & strFileExtension, bool bIncludeSubDirectories )
 {
-	std::vector<std::string> vRet;
+        std::vector<std::string> vRet;
+        std::string strSearchPath = strFolderPath + "\\*";
 
-	for ( auto & p : std::filesystem::recursive_directory_iterator( strFolderPath ) )
-	{
-		if ( GetFileExtension( p.path().string() ) == strFileExtension )
-		{
-			if ( bIncludeSubDirectories || (p.path().parent_path().string() == std::filesystem::path( strFolderPath ).parent_path().string()) )
-				vRet.push_back( p.path().string() );
-		}
-	}
+        WIN32_FIND_DATAA sFindData;
+        HANDLE hFind = FindFirstFileA( strSearchPath.c_str(), &sFindData );
 
-	return vRet;
+        if ( hFind != INVALID_HANDLE_VALUE )
+        {
+                do
+                {
+                        std::string strName = sFindData.cFileName;
+
+                        if ( (strName == ".") || (strName == "..") )
+                                continue;
+
+                        std::string strFullPath = strFolderPath + "\\" + strName;
+
+                        if ( sFindData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY )
+                        {
+                                if ( bIncludeSubDirectories )
+                                {
+                                        std::vector<std::string> vSubFiles = CSystem::ListFilesInDirectory( strFullPath, strFileExtension, TRUE );
+                                        vRet.insert( vRet.end(), vSubFiles.begin(), vSubFiles.end() );
+                                }
+                        }
+                        else if ( GetFileExtension( strFullPath ) == strFileExtension )
+                        {
+                                vRet.push_back( strFullPath );
+                        }
+                }
+                while ( FindNextFileA( hFind, &sFindData ) );
+
+                FindClose( hFind );
+        }
+
+        return vRet;
 }

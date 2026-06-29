@@ -6,14 +6,14 @@ namespace IOCP
 
 void CIocpConnectionManager::AddConnection( std::shared_ptr<CIocpConnection> cConnection )
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
 
     sConnectionMap.insert( std::make_pair( cConnection->iID, cConnection ) );
 }
 
 bool CIocpConnectionManager::RemoveConnection( INT64 iID )
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
 
     ConnectionMap_t::iterator itr = sConnectionMap.find( iID );
 
@@ -25,7 +25,7 @@ bool CIocpConnectionManager::RemoveConnection( INT64 iID )
 
 std::shared_ptr<CIocpConnection> CIocpConnectionManager::GetConnection( INT64 iID )
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
 
     ConnectionMap_t::iterator itr = sConnectionMap.find( iID );
 
@@ -37,7 +37,7 @@ std::shared_ptr<CIocpConnection> CIocpConnectionManager::GetConnection( INT64 iI
 
 void CIocpConnectionManager::CloseAllConnections()
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
 
     ConnectionMap_t::iterator itr = sConnectionMap.begin();
 

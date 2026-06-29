@@ -412,7 +412,7 @@ struct ModelDataOld
 	int					  iaTalkUnknown4[2][100];
 }; //Size = 0x1060C
 
-namespace Delta3D::Graphics{ class Material; };
+namespace Delta3D { namespace Graphics { class Material; } }
 
 struct UnitTool
 {

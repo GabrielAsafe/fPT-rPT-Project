@@ -15,14 +15,14 @@ CIocpSendQueue::~CIocpSendQueue()
 
 void CIocpSendQueue::AddSend( std::shared_ptr<CIocpBase> cSend )
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
 
     sSendBaseMap.insert( std::make_pair( cSend.get(), cSend ) );
 }
 
 int CIocpSendQueue::RemoveSend( CIocpBase * pcSend )
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
 
     sSendBaseMap.erase( pcSend );
 
@@ -37,7 +37,7 @@ CIocpBase * CIocpSendQueue::GetNext()
 
 void CIocpSendQueue::CloseAllSends()
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
 
     SendBaseMap_t::iterator itr = sSendBaseMap.begin();
     while ( itr != sSendBaseMap.end() )
@@ -53,9 +53,10 @@ void CIocpSendQueue::CloseAllSends()
 
 UINT CIocpSendQueue::NumOutstanding()
 {
-    std::scoped_lock<std::mutex> l( sMutex );
+    std::lock_guard<std::mutex> l( sMutex );
 
     return sSendBaseMap.size();
 }
 
 };
+
