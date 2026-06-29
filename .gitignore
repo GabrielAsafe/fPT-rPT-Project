@@ -1,0 +1,12 @@
+# Boost 
+boost/
+boost_*/
+libs/
+boost/
+thirdparty/
+boost/
+external/
+boost/
+# Boost build artifacts
+bin.v2/
+stage/ 
