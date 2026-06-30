@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -47,8 +47,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(DELTA3D_SDK_DIR)\Source;$(CEF_SDK_DIR);$(BOOST_SDK_DIR);$(DXSDK_DIR)Include;$(SHARED_DIR);$(CEGUI_SDK_DIR)\include;$(ULTRALIGHT_SDK_DIR)\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DELTA3D_SDK_DIR)\Lib;$(CEF_SDK_DIR)\Debug;$(BOOST_SDK_DIR)\libs;$(DXSDK_DIR)LIB\x86;$(CEGUI_SDK_DIR)\libs;$(ULTRALIGHT_SDK_DIR)\lib;$(NOESIS_SDK_DIR)\Lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(DX9_DIR)\Include;$(DELTA3D_SDK_DIR)\Source;$(CEF_SDK_DIR);$(BOOST_SDK_DIR);$(DXSDK_DIR)Include;$(SHARED_DIR);$(CEGUI_SDK_DIR)\include;$(ULTRALIGHT_SDK_DIR)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DX9_DIR)\Lib;$(DELTA3D_SDK_DIR)\Lib;$(CEF_SDK_DIR)\Debug;$(BOOST_SDK_DIR)\libs;$(DXSDK_DIR)LIB\x86;$(CEGUI_SDK_DIR)\libs;$(ULTRALIGHT_SDK_DIR)\lib;$(NOESIS_SDK_DIR)\Lib;$(LibraryPath)</LibraryPath>
     <SourcePath>$(VC_SourcePath);$(SHARED_DIR);$(DELTA3D_SDK_DIR)\Source;$(CEGUI_SDK_DIR)\src;$(ULTRALIGHT_SDK_DIR)\include</SourcePath>
     <GenerateManifest>true</GenerateManifest>
   </PropertyGroup>
@@ -56,8 +56,8 @@
     <LinkIncremental>false</LinkIncremental>
     <CodeAnalysisRuleSet>rules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
-    <IncludePath>$(DXSDK_DIR)\Include;$(DELTA3D_SDK_DIR)\Source;$(CEF_SDK_DIR);$(BOOST_SDK_DIR);$(SHARED_DIR);$(VC_IncludePath);$(WindowsSDK_IncludePath);$(CEGUI_SDK_DIR)\include;$(ULTRALIGHT_SDK_DIR)\include</IncludePath>
-    <LibraryPath>$(DXSDK_DIR)\Lib\x86;$(DELTA3D_SDK_DIR)\Lib;$(CEF_SDK_DIR)\Release;$(BOOST_SDK_DIR)\libs;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(CEGUI_SDK_DIR)\libs;$(ULTRALIGHT_SDK_DIR)\lib;$(NOESIS_SDK_DIR)\Lib</LibraryPath>
+    <IncludePath>$(DX9_DIR)\Include;$(DXSDK_DIR)\Include;$(DELTA3D_SDK_DIR)\Source;$(CEF_SDK_DIR);$(BOOST_SDK_DIR);$(SHARED_DIR);$(VC_IncludePath);$(WindowsSDK_IncludePath);$(CEGUI_SDK_DIR)\include;$(ULTRALIGHT_SDK_DIR)\include</IncludePath>
+    <LibraryPath>$(DX9_DIR)\Lib;$(DXSDK_DIR)\Lib\x86;$(DELTA3D_SDK_DIR)\Lib;$(CEF_SDK_DIR)\Release;$(BOOST_SDK_DIR)\libs;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86;$(CEGUI_SDK_DIR)\libs;$(ULTRALIGHT_SDK_DIR)\lib;$(NOESIS_SDK_DIR)\Lib</LibraryPath>
     <SourcePath>$(DELTA3D_SDK_DIR)\Source;$(SHARED_DIR);$(VC_SourcePath);$(CEGUI_SDK_DIR)\src</SourcePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -1027,3 +1027,4 @@ xcopy "$(OutDir)*.pdb" "$(COPY_RELEASE_DLL_DIR)" /d /y
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ShaderGraphContentTask.targets" />
   </ImportGroup>
 </Project>
+
